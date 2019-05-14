@@ -1,0 +1,4 @@
+#!/bin/bash
+cd /root/nuls_2.0/NULS-Wallet-linux64-alpha2
+./shutdown
+if 
