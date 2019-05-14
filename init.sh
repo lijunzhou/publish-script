@@ -1,5 +1,4 @@
 #!/bin/bash
-cd /root
 git clone https://github.com/nuls-io/nuls-v2.git
 mv nuls-v2 nuls_2.0
 cd ./nuls_2.0
