@@ -1,5 +1,5 @@
 #!/bin/bash
 source /etc/profile
-cd ./nuls-v2
-./package -b $1
+cd $1
 ./$2
+rm -rf data

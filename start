@@ -1,0 +1,6 @@
+#!/bin/bash
+# p1 程序发布路径
+# p2 启动脚本
+source /etc/profile
+cd $1
+./$2

@@ -1,0 +1,21 @@
+#!/bin/bash
+# p1 分支名称
+# p2 除了基础模块额外要打包的模块列表，逗号隔开
+source /etc/profile
+dir="nuls-v2"
+if [ -d "$dir" ];
+then
+    cd $dir
+    git checkout $1
+    git pull origin $1
+else
+    git clone https://github.com/nuls-io/nuls-v2.git
+    cd $dir
+    git checkout $1
+fi
+IFS=',' read -ra modules <<< "$2"
+for module in ${modules[@]}
+do
+    ./package -a $module
+done
+./package
