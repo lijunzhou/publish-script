@@ -4,12 +4,20 @@ IPLIST=`getConfigItem "call.ips"`
 IFS=',' read -ra ips <<< "${IPLIST}"
 for ip in ${ips[@]}
 do
-	host="${ip}"
-	for cmd in ${@}
-	do
-	    PARAM=`getConfigItem "${cmd}.param"`
-        echo "$host 'bash -s' < ./$cmd $PARAM"
-        ssh $host 'bash -s' < ./$cmd $PARAM
-	done
-
+    {
+        host="${ip}"
+        for cmd in ${@}
+        do
+            PARAM=`getConfigItem "${cmd}.param"`
+            echo "$host 'bash -s' < ./$cmd $PARAM"
+            ssh $host 'bash -s' < ./$cmd $PARAM
+        done
+    } &
 done
+
+wait
+
+echo "CMD DONE"
+
+
+
