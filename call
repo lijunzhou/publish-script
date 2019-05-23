@@ -1,6 +1,5 @@
 #!/bin/bash
 . func
-
 IPLIST=`getConfigItem "call.ips"`
 IFS=',' read -ra ips <<< "${IPLIST}"
 for ip in ${ips[@]}
