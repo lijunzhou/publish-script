@@ -2,5 +2,13 @@
 # p1 程序发布路径
 # p2 停止脚本
 source /etc/profile
-cd $1
-eval "./$2"
+cmd="stop-mykernel"
+if [ -n "$1" ]; then
+    cmd=$1
+fi
+path=./nuls-v2/NULS-Wallet-linux64-alpha2
+if [ -n "$2" ]; then
+    path=$2
+fi
+cd $path
+eval "./cmd"

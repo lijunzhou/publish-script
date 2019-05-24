@@ -1,5 +1,13 @@
 #!/bin/bash
 source /etc/profile
-cd $1
-./$2
+cmd="stop-mykernel"
+if [ -n "$1" ]; then
+    cmd=$1
+fi
+path=./nuls-v2/NULS-Wallet-linux64-alpha2
+if [ -n "$2" ]; then
+    path=$2
+fi
+cd $path
+eval "./cmd"
 rm -rf data

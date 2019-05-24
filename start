@@ -1,6 +1,20 @@
 #!/bin/bash
 # p1 程序发布路径
 # p2 启动脚本
+# p3 配置文件 不传 默认 nuls.ncf
 source /etc/profile
-cd $1
-./$2
+cmd="start-mykernel"
+if [ -n "$1" ]; then
+    cmd=$1
+fi
+path=./nuls-v2/NULS-Wallet-linux64-alpha2
+if [ -n "$2" ]; then
+    path=$2
+fi
+cd $path
+config=./nuls.ncf
+if [ -n "$3" ];
+then
+    config=./$3
+fi
+./$cmd -c $config
