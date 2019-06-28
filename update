@@ -1,15 +1,15 @@
 #!/bin/bash
 source /etc/profile
 cmd="stop-mykernel"
-if [ -n "$1" ]; then
-    cmd=$1
+if [ -n "$2" ]; then
+    cmd=$2
 fi
 path=./nuls-v2/NULS-Wallet-linux64-alpha2
-if [ -n "$2" ]; then
-    path=$2
+if [ -n "$3" ]; then
+    path=$3
 fi
 cd $path
-eval "./cmd"
+eval "./$cmd"
 cd ..
 ./package -b $1
 

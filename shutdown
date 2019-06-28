@@ -11,4 +11,4 @@ if [ -n "$2" ]; then
     path=$2
 fi
 cd $path
-eval "./cmd"
+eval "./$cmd"
